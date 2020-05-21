@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  getSaleList() {
+    console.log(environment.apiURL);
+    return this.http.get(environment.apiURL + 'api/sales').toPromise();
+  }
   bigChart() {
     return [{
       name: 'Asia',
