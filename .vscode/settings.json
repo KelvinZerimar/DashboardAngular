@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/91169033-d89c-4d79-a920-ed93712d71bf/resourceGroups/MongoDB/providers/Microsoft.Web/sites/krdemoangular",
+    "appService.deploySubpath": "dist\\SalesDashboard"
+}

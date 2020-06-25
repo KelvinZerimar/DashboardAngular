@@ -15,9 +15,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { LoginComponent } from 'src/app/modules/user/login/login.component';
 import { RegistrationComponent } from 'src/app/modules/user/registration/registration.component';
 import { UserComponent } from 'src/app/modules/user/user.component';
+import { SalesComponent } from '../../modules/sales/sales.component';
 
 import { DashboardService } from 'src/app/modules/dashboard.service';
+import { UserService } from 'src/app/modules/user.service';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -25,11 +28,14 @@ import { DashboardService } from 'src/app/modules/dashboard.service';
     PostsComponent,
     LoginComponent,
     RegistrationComponent,
-    UserComponent
+    UserComponent,
+    SalesComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
     SharedModule,
     MatSidenavModule,
     MatDividerModule,
@@ -39,7 +45,8 @@ import { DashboardService } from 'src/app/modules/dashboard.service';
     MatTableModule
   ],
   providers: [
-    DashboardService
+    DashboardService,
+    UserService
   ]
 })
 export class DefaultModule { }

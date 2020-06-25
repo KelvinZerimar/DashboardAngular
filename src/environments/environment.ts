@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-    apiURL: 'http://localhost:57877/'
+    apiURL: 'https://krsampleapi.azurewebsites.net/'
 };
 
 /*
