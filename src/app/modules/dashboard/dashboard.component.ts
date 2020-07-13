@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { DashboardService } from '../dashboard.service';
+import { SalesService } from '../sales.service';
 import { Router } from '@angular/router';
 
 export interface PeriodicElement {
@@ -24,10 +25,10 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['region', 'country', 'itemType', 'salesChannel'];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private router: Router, private dashboardService: DashboardService) { }
+  constructor(private router: Router, private dashboardService: DashboardService, private salesSvc: SalesService) { }
 
   ngOnInit(): void {
-    this.dashboardService.getSaleList().then(
+    this.salesSvc.getSaleList().then(
       result => {
         this.salesList = result;
         this.dataSource = new MatTableDataSource<PeriodicElement>(this.salesList);
