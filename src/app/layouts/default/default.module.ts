@@ -18,9 +18,13 @@ import { UserComponent } from 'src/app/modules/user/user.component';
 import { SalesComponent } from '../../modules/sales/sales.component';
 
 import { DashboardService } from 'src/app/modules/dashboard.service';
+import { SalesService } from 'src/app/modules/sales.service';
 import { UserService } from 'src/app/modules/user.service';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { AgGridModule } from 'ag-grid-angular';
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -42,10 +46,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MatCardModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    AgGridModule.withComponents()
   ],
   providers: [
     DashboardService,
+    SalesService,
     UserService
   ]
 })

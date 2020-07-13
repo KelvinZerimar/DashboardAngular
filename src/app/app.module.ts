@@ -8,7 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
+import { AgGridModule } from 'ag-grid-angular';
 
+import { BackendInterceptor } from 'src/app/core/http-interceptors/backend.interceptors';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,16 @@ import { DefaultModule } from './layouts/default/default.module';
     BrowserAnimationsModule,
     DefaultModule,
     HttpClientModule,
+    AgGridModule.withComponents(),
     ToastrModule.forRoot({
       progressBar: true
     })
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: BackendInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

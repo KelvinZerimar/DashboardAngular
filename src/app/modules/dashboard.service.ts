@@ -8,10 +8,12 @@ import { environment } from 'src/environments/environment';
 export class DashboardService {
 
   constructor(private http: HttpClient) { }
+  // get sales
   getSaleList() {
     console.log(environment.apiURL);
     return this.http.get(environment.apiURL + 'api/sales').toPromise();
   }
+  // get chart
   bigChart() {
     return [{
       name: 'Asia',
